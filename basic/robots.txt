@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: ./passwords/
+Disallow: ./config.inc

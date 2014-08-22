@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /key15=9cc138f8dc04cbf16240daa92d8d50e2/

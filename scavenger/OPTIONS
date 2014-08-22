@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sat, 10 Apr 2010 03:39:42 GMT
+Server: Apache
+Content-Location: index.en-gb.html
+Vary: negotiate,accept-language,Accept-Encoding
+TCN: choice
+Allow: GET,HEAD,POST,OPTIONS,TRACE
+Cache-Control: max-age=86400
+Expires: Sun, 11 Apr 2010 03:39:42 GMT
+Content-Length: 0
+Content-Type: text/html
+Content-Language: en-gb

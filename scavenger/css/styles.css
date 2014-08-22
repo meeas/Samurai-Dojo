@@ -1,0 +1,123 @@
+body {
+	margin-bottom: 0px;
+	font-family: Verdana;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #525252;
+}
+a:link {
+	color: 868686;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: underline;
+
+}
+a:hover {
+	color: #C49739;
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: normal;
+	line-height: normal;
+	font-variant: normal;
+	text-transform: none;
+	border: thin none #FFFFFF;
+	text-decoration: underline;
+}
+a:visited {
+	color: 868686;
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: underline;
+
+}
+td, textarea, input, select {
+	font-family: Verdana;
+	font-size: 10px;
+	color: E6E6E6;
+	font-weight: normal;
+}
+.tableDetail {
+	font-size: 10px;
+	font-family: Verdana;
+	color: #49394E;
+}
+.text1 {
+	font-family: Verdana;
+	font-size: 10px;
+	color: E6E6E6;
+	font-weight: bold;
+}
+.text2 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: 232F34;
+}
+.text3 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: 868686;
+}
+.frame {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #87D27F;
+	border: 1px solid #22353C;
+}
+.text4 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+.designed_by {
+	font-family: Arial;
+	font-size: 8.5px;
+	font-weight: lighter;
+	color: #000000;
+}
+.text5 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: BED7EB;
+}
+.text6 {
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: 87ADC2;
+}
+.text7 {
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: D0CFCF;
+}
+.text8 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: D0CFCF;
+}
+.text9 {
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: 868686;
+}
+.text10 {
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: 871417;
+}

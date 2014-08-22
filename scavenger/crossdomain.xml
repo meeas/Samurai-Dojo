@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+<allow-access-from domain="*" />
+<allow-access-from domain="intranet" />
+<allow-access-from domain="key16=2dea61eed4bceec564a00115c4d21334" />
+</cross-domain-policy>

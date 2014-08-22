@@ -1,0 +1,4 @@
+'admin', 'adminpass', 'Monkey!!!
+'adrian', 'somepassword', 'Zombie Films Rock!!!
+'john', 'monkey', 'I like the smell of confunk
+'ed', 'pentest', 'Commandline KungFu anyone?'
