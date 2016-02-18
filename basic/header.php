@@ -67,7 +67,7 @@ if ($dosomething  == "logout") {
 		<!-- Old username query for welcome message before move to base64 uids
 		$query  = "SELECT * FROM accounts WHERE cid='".$_COOKIE["uid"]."'";
 		-->
-		<?
+		<?php
 		$query  = "SELECT * FROM accounts WHERE cid='".base64_decode($_COOKIE["uid"])."'";
 		$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);
 		echo mysql_error($conn);
