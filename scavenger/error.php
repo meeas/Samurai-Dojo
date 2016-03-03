@@ -28,8 +28,8 @@
 <li><a href="/">home</a></li>
 <li><a href="aboutus.php">about</a></li>
 <li><a href="products.php">products</a></li>
-<li><a href="partners.php" class="current">partners</a></li>
-<li><a href="support.php">support</a></li>
+<li><a href="partners.php">partners</a></li>
+<li><a href="support.php" class="current">support</a></li>
 <li><a href="contactus">contact</a></li>
 </ul>
 </div>
@@ -38,12 +38,10 @@
 <div style="float: right;"><a href="javascript:ts('body',1)">[+]</a> | <a
 href="javascript:ts('body',-1)">[-]</a></div>
 <div id="left">
-<h2>Partners' Main Page</h2>
-<p>Hello user <?php echo($_GET["username"]);?>. <?php if ($_GET["username"] == 'key') { echo 'Access code 14 is daca41214b39c5dc66674d09081940f0.'; } else { echo 'There are no messages for you at this time.'; }
-?></p>
-<hr>
-<p>Right now we have decided to not offer any services to our partners.  If you want, email <a href="mailto:kevin@dojo">Kevin Flynn</a>
- </div>
+<h2>Error</h2>
+<p>The following error was detected:</p>
+<p><div id="errormsg"></div>
+</p> </div>
 <div id="right">
 <ul id="nav">
 	<li><a href="index.php">Home</a></li>
@@ -57,6 +55,10 @@ href="javascript:ts('body',-1)">[-]</a></div>
 <p>Copyright 2009 by Samurai Dojo Industries. Designed by <a href="http://loadfoo.org/" rel="external">LoadFoO</a>. Released as an Open Source design</p>
 </div>
 </div>
-
+<script>
+	var msg = decodeURIComponent(location.search.substr(1));
+	document.getElementById("errormsg").innerHTML = msg;
+	
+</script>
 </body>
 </html>

@@ -1,3 +1,13 @@
+<?PHP
+	if (isset($_POST["search"])) {
+		$searchterm = $_POST["search"];
+		if (strpos($searchterm, "'") != false) {
+			header('Location: error.php?Error:%20Search%20included%20dangerous%20characters.');
+			exit;
+		}
+	}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	
 <!-- ==========================================================	-->

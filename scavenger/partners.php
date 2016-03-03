@@ -1,23 +1,15 @@
 <?php
-   if (isset($_POST["username"])) {
-	mysql_connect("localhost", "root", "samurai") or die(mysql_error());
-	mysql_select_db("samurai_dojo_scavenger");
-	$resultset = mysql_query("select * from partners_data where username = '".$_POST["username"]."';") or die(mysql_error());
-	#do something with this here!
-	$result = mysql_fetch_assoc($resultset);
-	if ($_POST["password"] == $result["password"]){
-		header("Location: partner_main.php?username=".$result["username"]);
-		die();
-	} else {
-		echo("<!--");
-		mysql_data_seek($resultset, 0);
-		while( $row = mysql_fetch_array($resultset) ){
-			echo($row["username"]."=".$row["password"]." ");
-		}
-		echo("-->"); 
-      }
-}
-   ?>
+    if (!empty($_POST["username"])) {
+        mysql_connect("localhost", "root", "samurai") or die(mysql_error());
+        mysql_select_db("samurai_dojo_scavenger");
+        $resultset = mysql_query("select * from partners_data where username = '".$_POST["username"]."';") or die(mysql_error());
+        $result = mysql_fetch_assoc($resultset);
+        if ($_POST["password"] == $result["password"]){
+            header("Location: partner_main.php?username=".$result["username"]);
+            exit();
+        }
+    }
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	
 <!-- ==========================================================	-->
