@@ -1,14 +1,17 @@
 		<!-- End Content -->
-	</blockquote>
+	        </div>
+    </div>
 <?php
 include 'closedb.inc';
 ?>
-		</td>
-	</tr>
-</table>
+
 <br>
 <hr>
-<center>Copyright 2012 Justin Searle</center>
-<center>Samurai Dojo-Basic is a <a href="http://www.samurai-wtf.org" target="_blank">SamuraiWTF</a> Project.</center>
+<div class="row" id="footerbar">
+    Copyright 2012 Justin Searle<br/>
+Samurai Dojo-Basic is a <a href="http://www.samurai-wtf.org" target="_blank">SamuraiWTF</a> Project.
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
