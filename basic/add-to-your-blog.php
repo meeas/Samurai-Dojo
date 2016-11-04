@@ -1,5 +1,4 @@
-<center><h2><b>Add to your blog</b></h2></center><p>
-
+<div class="page-title"><h2>Add to your blog</h2></div>
 <?php
 echo "<form method=\"POST\" action=\"" .$_SERVER['SCRIPT_NAME'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
 ?>

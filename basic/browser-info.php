@@ -1,4 +1,4 @@
-<center><h2><b>User agent string and other browser info</b></h2></center><p>
+<div class="page-title"><h2>User agent string and other browser info</h2></div>
 
 <B>Info obtained by PHP on the server:</B><P>
 <TABLE cellpadding="5" width="65%" align="center">
