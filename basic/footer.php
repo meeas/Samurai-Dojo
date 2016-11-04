@@ -13,5 +13,13 @@ Samurai Dojo-Basic is a <a href="http://www.samurai-wtf.org" target="_blank">Sam
 </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+    var hrefval="<?php echo "?".$_SERVER['QUERY_STRING']; ?>";
+    if (hrefval=="?") {
+        hrefval="index.php"
+    }
+    $(".nav>li>a[href=\""+hrefval+"\"]").parent().addClass("active");
+
+</script>
 </body>
 </html>
