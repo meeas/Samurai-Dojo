@@ -9,10 +9,10 @@ $query = "INSERT INTO hitlog(hostname, ip, browser, referer, date) VALUES ('".
 	"Redirected user to: " . $forwardurl . "', ".
 	" now() )";
 //echo $query;
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
-mysql_close($conn);
+mysqli_close($conn);
 
 header("Location: " . $forwardurl); /* Redirect browser */
 /* Make sure that code below does not get executed when we redirect. */

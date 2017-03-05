@@ -6,7 +6,7 @@ $signature = $_REQUEST["signature"];
 $cid = base64_decode($_COOKIE["uid"]);
 if ($password <> "") {
 	$query = "UPDATE accounts SET password='" . $password . "', mysignature='" . $signature . "' WHERE cid='" . $cid . "'";
-	$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);
+	$result = $conn->query($query) or die(mysqli_error($conn) . '<p><b>SQL Statement:</b>' . $query);
 	header("Location: ".$_SERVER['SCRIPT_NAME']."?".$_SERVER['QUERY_STRING']);
 }
 
@@ -14,9 +14,9 @@ if ($password <> "") {
 
 <?php
 $query = "SELECT * FROM accounts WHERE cid='". $cid ."'";
-$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);
-if (mysql_num_rows($result) > 0) {
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) { ?>
+$result = $conn->query($query) or die(mysqli_error($conn) . '<p><b>SQL Statement:</b>' . $query);
+if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) { ?>
 
 <form class="form-horizontal" method="POST" action="<?php echo "{$_SERVER['SCRIPT_NAME']}?{$_SERVER['QUERY_STRING']}" ?>">
     <div class="form-group">

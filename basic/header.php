@@ -9,8 +9,8 @@ $dosomething = $_REQUEST["do"];
 
 if ($username <> "" and $password <> "") {
 	$query  = "SELECT * FROM accounts WHERE username='". $username ."' AND password='".stripslashes($password)."'";
-	$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);
-	if (mysql_num_rows($result) > 0) {
+	$result = $conn->query($query) or die(mysqli_error($conn) . '<p><b>SQL Statement:</b>' . $query);
+	if ($result->num_rows > 0) {
 		// flag the cookie as secure only if it is accessed via SSL
 		$ssl = FALSE;
 		if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
@@ -22,7 +22,7 @@ if ($username <> "" and $password <> "") {
                 $value = md5($rndm);
                 setcookie("sessionid", $value, 0, "/", "", $ssl, TRUE);
 		// set uid to appropriate user
-		$row = mysql_fetch_array($result, MYSQL_ASSOC);
+		$row = $result->fetch_assoc();
 		setcookie("uid", base64_encode($row['cid']), 0, "/", "", $ssl, FALSE); 
 		$failedloginflag=0;
 		echo '<meta http-equiv="refresh" content="0;url=index.php">';
@@ -75,11 +75,11 @@ if ($dosomething  == "logout") {
 		-->
 		<?php
 		$query  = "SELECT * FROM accounts WHERE cid='".base64_decode($_COOKIE["uid"])."'";
-		$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);
-		echo mysql_error($conn);
-		echo mysql_error($conn);
-		if (mysql_num_rows($result) > 0) {
-			while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+		$result = $conn->query($query) or die(mysqli_error($conn) . '<p><b>SQL Statement:</b>' . $query);
+		echo mysqli_error($conn);
+		echo mysqli_error($conn);
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc())
 			{
 				$logged_in_user = $row['username'];
 				$logged_in_usersignature = $row['mysignature'];				
