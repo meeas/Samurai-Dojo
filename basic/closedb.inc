@@ -6,8 +6,8 @@ $query = "INSERT INTO hitlog(hostname, ip, browser, referer, date) VALUES ('".
 	$_SERVER['HTTP_REFERER'] . "', ".
 	" now() )";
 //echo $query;
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
-mysql_close($conn);
+mysqli_close($conn);
 ?>

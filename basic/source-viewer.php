@@ -1,4 +1,4 @@
-<center><h2><b>See the source for some of our cool apps</b></h2></center><p>
+<div class="page-title"><h2>See the source for some cool apps</h2></div>
 
 Just choose one form the list and submit.
 

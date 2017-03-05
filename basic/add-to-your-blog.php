@@ -1,5 +1,4 @@
-<center><h2><b>Add to your blog</b></h2></center><p>
-
+<div class="page-title"><h2>Add to your blog</h2></div>
 <?php
 echo "<form method=\"POST\" action=\"" .$_SERVER['SCRIPT_NAME'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
 ?>
@@ -12,7 +11,7 @@ echo "<form method=\"POST\" action=\"" .$_SERVER['SCRIPT_NAME'] . "?" . $_SERVER
 
 <?php
 // Grab inputs
-$inputfromform = mysql_real_escape_string($_REQUEST["input"]);
+$inputfromform = $conn->real_escape_string($_REQUEST["input"]);
 $showonlyuser =  $_REQUEST["show_only_user"];
 
 if ($inputfromform  <> "") {
@@ -21,7 +20,7 @@ if ($inputfromform  <> "") {
 		$inputfromform  . "', " .
 		" now() )";
 
-$result = mysql_query($query);
+$result = $conn->query($query);
 }
 
 $query  = "SELECT * FROM blogs_table WHERE
@@ -29,11 +28,11 @@ $query  = "SELECT * FROM blogs_table WHERE
 		ORDER BY date DESC
 		LIMIT 0 , 100";
 		
-$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);;
+$result = $conn->query($query) or die(mysqli_error($conn) . '<p><b>SQL Statement:</b>' . $query);;
 //echo $result;
 
 echo 'Entries:<p>';
-while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+while($row = $result->fetch_assoc())
 {
 echo "<p><b>{$row['blogger_name']}:</b>({$row['date']})<br>{$row['comment']}</p>";
 }

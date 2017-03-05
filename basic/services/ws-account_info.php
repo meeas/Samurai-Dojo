@@ -23,9 +23,9 @@ $server->register('account_info',                   // method name
 // Define the method as a PHP function
 function account_info($id) {
     $getid = "SELECT * FROM accounts WHERE username = '$id'";
-    $result = mysql_query($getid) or die(mysql_error());
+    $result = $conn->query($getid) or die(mysqli_error());
     $results = '';
-    while($row = mysql_fetch_array($result, MYSQLI_NUM)) {
+    while($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
         // Print out the contents of the entry 
         $results .= implode("|", $row)."\n";
     }

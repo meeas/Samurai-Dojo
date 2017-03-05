@@ -1,11 +1,12 @@
-<center><h2><b>Showing Log</b></h2></center><p>
+<div class="page-title"><h2>Showing Log</h2></div>
+
 <?php
 $query = "SELECT * FROM `hitlog`";
-$result = mysql_query($query) or die(mysql_error($conn) . '<p><b>SQL Statement:</b>' . $query);;
+$result = $conn->query($query) or die(mysqli_error($conn) . '<p><b>SQL Statement:</b>' . $query);;
 //echo $result;
 echo '<TABLE border="1" width="100%">';
    echo "<TR><TD><B>Hostname</B></font></TD><TD><B>IP</B></TD><TD><B>Browser Agent</B></TD><TD><B>Page Viewed</B></TD><TD><B>Date/Time</B></TD></TR>";
-while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+while($row = $result->fetch_assoc())
 {
 echo "<TR><TD>{$row['hostname']}</TD><TD>{$row['ip']}</TD><TD>{$row['browser']}</TD><TD>{$row['referer']}</TD><TD>{$row['date']}</TD></TR>\n";
 }

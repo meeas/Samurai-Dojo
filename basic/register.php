@@ -1,5 +1,4 @@
-<center><h2><b>Create an account</b></h2></center><p>
-
+<div class="page-title"><h2>Create an account</h2></div>
 <?php
 echo "<form method=\"POST\" action=\"" .$_SERVER['SCRIPT_NAME'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
 // Grab inputs
@@ -23,8 +22,8 @@ if ($username <>"") {
 		$query = "INSERT INTO accounts (username, password, mysignature) VALUES
 			('" . $username ."', '" . $password . "', '" . $mysignature ."')";
 		//echo $query;
-		$result = mysql_query($query);
-		echo mysql_error($conn);
+		$result = $conn->query($query);
+		echo mysqli_error($conn);
 		echo "Account Made";
 		} else {
 		echo '<h1><font color="#ff0000">Passwords do not match</font></h1>';

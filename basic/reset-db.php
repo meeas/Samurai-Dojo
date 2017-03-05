@@ -8,11 +8,11 @@ Setting up the DBs.
 
 <?php
 include 'config.inc';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql');
-mysql_query("DROP DATABASE IF EXISTS $dbname",$conn);
-echo mysql_error($conn);
-mysql_query("CREATE DATABASE $dbname",$conn);
-echo mysql_error($conn);
+$conn = new mysqli($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql');
+$conn->query("DROP DATABASE IF EXISTS $dbname");
+echo mysqli_error($conn);
+$conn->query("CREATE DATABASE $dbname");
+echo mysqli_error($conn);
 include 'opendb.inc';
 $query = 'CREATE TABLE blogs_table( '.
 		 'cid INT NOT NULL AUTO_INCREMENT, '.
@@ -20,8 +20,8 @@ $query = 'CREATE TABLE blogs_table( '.
          'comment TEXT, '.
 		 'date DATETIME, '.
 		 'PRIMARY KEY(cid))';	
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
 $query = 'CREATE TABLE accounts( '.
 		 'cid INT NOT NULL AUTO_INCREMENT, '.
@@ -29,8 +29,8 @@ $query = 'CREATE TABLE accounts( '.
          'password TEXT, '.
 		 'mysignature TEXT, '.
 		 'PRIMARY KEY(cid))';
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
 $query = 'CREATE TABLE hitlog( '.
 		 'cid INT NOT NULL AUTO_INCREMENT, '.
@@ -40,8 +40,8 @@ $query = 'CREATE TABLE hitlog( '.
 		 'referer TEXT, '.
 		 'date DATETIME, '.
 		 'PRIMARY KEY(cid))';		 
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
 $query = "INSERT INTO accounts (username, password, mysignature) VALUES
 	('admin', 'Flynn', 'Monkey!!!'),
@@ -49,8 +49,8 @@ $query = "INSERT INTO accounts (username, password, mysignature) VALUES
 	('john', 'monkey', 'I like the smell of confunk'),
 	('ed', 'pentest', 'Commandline KungFu anyone?')";
 //echo $query;
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
 $query ="INSERT INTO `blogs_table` (`cid`, `blogger_name`, `comment`, `date`) VALUES
 	(1, 'adrian', 'Well, I''ve been working on this for a bit. Welcome to my crappy blog software. :)', '2009-03-01 22:26:12'),
@@ -62,8 +62,8 @@ $query ="INSERT INTO `blogs_table` (`cid`, `blogger_name`, `comment`, `date`) VA
 	(7, 'john', 'Chocolate is GOOD!!!', '2009-03-01 22:30:06'),
 	(8, 'admin', 'Fear me, for I am ROOT!', '2009-03-01 22:31:13')";
 //echo $query;
-$result = mysql_query($query);
-echo mysql_error($conn );
+$result = $conn->query($query);
+echo mysqli_error($conn );
 
 
 echo "<p>If you see no errors above, it should be done. <a href=\"index.php\">Continue back to the frontpage.</a>";

@@ -1,4 +1,4 @@
-<center><h2><b>Hacker text files of old</b></h2></center><p>
+<div class="page-title"><h2>Hacker text files of old</h2></div>
 
 Take the time to read some of these great old school hacker text files. Just choose one form the list and submit.
 

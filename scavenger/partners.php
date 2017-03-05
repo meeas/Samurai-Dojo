@@ -1,9 +1,9 @@
 <?php
     if (!empty($_POST["username"])) {
-        mysql_connect("localhost", "root", "samurai") or die(mysql_error());
-        mysql_select_db("samurai_dojo_scavenger");
-        $resultset = mysql_query("select * from partners_data where username = '".$_POST["username"]."';") or die(mysql_error());
-        $result = mysql_fetch_assoc($resultset);
+        mysqli_connect("localhost", "root", "samurai") or die(mysqli_error());
+        mysqli_select_db("samurai_dojo_scavenger");
+        $resultset = mysqli_query("select * from partners_data where username = '".$_POST["username"]."';") or die(mysqli_error());
+        $result = mysqli_fetch_assoc($resultset);
         if ($_POST["password"] == $result["password"]){
             header("Location: partner_main.php?username=".$result["username"]);
             exit();
