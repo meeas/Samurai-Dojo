@@ -23,7 +23,7 @@ The one configuration item that is necessary is on your local host (i.e. not the
 
 The two apps are setup with virtual hosting on ports 42080 and 42443. Therefore to access them over http, you would point a browser to any of:
 
-* http://dojo-basic:42080
-* https://dojo-basic:42443
-* http://dojo-scavenger:42080
-* https://dojo-scavenger:42443
+* http://dojo-basic:33080
+* https://dojo-basic:33443
+* http://dojo-scavenger:33080
+* https://dojo-scavenger:33443
