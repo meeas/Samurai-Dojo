@@ -25,7 +25,13 @@ if ($username <> "" and $password <> "") {
 		$row = $result->fetch_assoc();
 		setcookie("uid", base64_encode($row['cid']), 0, "/", "", $ssl, FALSE); 
 		$failedloginflag=0;
-		echo '<meta http-equiv="refresh" content="0;url=index.php">';
+		if ($_REQUEST["returnURL"] <> "") {
+			echo '<meta http-equiv="refresh" content="0;url=' + $_REQUEST["returnURL"] + '>';
+		} else {
+			echo '<meta http-equiv="refresh" content="0;url=index.php">';
+		}
+
+		
 	} else {
 		$failedloginflag=1;
 	}
@@ -98,7 +104,7 @@ if ($dosomething  == "logout") {
             <li><a href="index.php">Home</a></li>
     <?php if (!$_COOKIE["sessionid"]) { ?>
 		<li><a href="?page=register.php">Register</a></li>
-		<li><a href="?page=login.php">Login</a></li>
+		<li><a href="?page=login.php&returnURL=<?php echo $_SERVER['SCRIPT_NAME']; ?>">Login</a></li>
      <?php }; if ($_COOKIE["sessionid"]) { ?>
             <li><a href="?page=user-info.php">User Info</a></li>
 		<li><a href="?page=add-to-your-blog.php">Blog Entry</a></li>
