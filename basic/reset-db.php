@@ -47,7 +47,11 @@ $query = "INSERT INTO accounts (username, password, mysignature) VALUES
 	('admin', 'Flynn', 'Monkey!!!'),
 	('adrian', 'somepassword', 'Zombie Films Rock!!!'),
 	('john', 'monkey', 'I like the smell of confunk'),
-	('ed', 'pentest', 'Commandline KungFu anyone?')";
+	('ed', 'pentest', 'Commandline KungFu anyone?'),
+	('justin', 'hawk', 'ICS is amazing.'),
+	('micwg', 'cim', 'Windows is awful.'),
+	('jasong', 'pentest', 'Eh? Oh I can't say that anymore.)
+	";
 //echo $query;
 $result = $conn->query($query);
 echo mysqli_error($conn );
