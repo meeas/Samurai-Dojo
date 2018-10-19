@@ -26,7 +26,7 @@ if ($username <> "" and $password <> "") {
 		setcookie("uid", base64_encode($row['cid']), 0, "/", "", $ssl, FALSE); 
 		$failedloginflag=0;
 		if ($_REQUEST["returnURL"] <> "") {
-			echo '<meta http-equiv="refresh" content="0;url=' + $_REQUEST["returnURL"] + '>';
+			echo '<meta http-equiv="refresh" content="0;url=' . $_REQUEST["returnURL"] , '">';
 		} else {
 			echo '<meta http-equiv="refresh" content="0;url=index.php">';
 		}
