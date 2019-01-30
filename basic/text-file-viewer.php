@@ -6,15 +6,15 @@ Take the time to read some of these great old school hacker text files. Just cho
 echo "<form method=\"POST\" action=\"" .$_SERVER['SCRIPT_NAME'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
 ?>
 	<p><select size="1" name="text_file_name">
-	<option value="http://dojo-basic/readingroom/atms">An Overview of ATMs and Information on the Encoding System
+	<option value="http://dojo-basic.wtf/readingroom/atms">An Overview of ATMs and Information on the Encoding System
 	</option>
-	<option selected value="http://dojo-basic/readingroom/auditool.txt">Intrusion Detection in Computers by Victor H. Marshall (January 29, 1991)
+	<option selected value="http://dojo-basic.wtf/readingroom/auditool.txt">Intrusion Detection in Computers by Victor H. Marshall (January 29, 1991)
 	</option>
-	<option value="http://dojo-basic/readingroom/backdoor.txt">How to Hold Onto UNIX Root Once You Have It
+	<option value="http://dojo-basic.wtf/readingroom/backdoor.txt">How to Hold Onto UNIX Root Once You Have It
 	</option>
-	<option value="http://dojo-basic/readingroom/hack1.hac">The Basics of Hacking, by the Knights of Shadow (Intro)
+	<option value="http://dojo-basic.wtf/readingroom/hack1.hac">The Basics of Hacking, by the Knights of Shadow (Intro)
 	</option>
-	<option value="http://dojo-basic/readingroom/hacking101.hac">HACKING 101 - By Johnny Rotten - Course #1 - Hacking, Telenet, Life
+	<option value="http://dojo-basic.wtf/readingroom/hacking101.hac">HACKING 101 - By Johnny Rotten - Course #1 - Hacking, Telenet, Life
 	</option>
 	</select></p>
 	<p><input type="submit" value="Submit" name="B1"></p>
