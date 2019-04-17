@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-config.vm.network "forwarded_port", guest:80, host: 33080
-config.vm.network "forwarded_port", guest:443, host: 33443
+config.vm.network "forwarded_port", guest:30080, host: 30080
+config.vm.network "forwarded_port", guest:31080, host: 31080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -41,7 +41,7 @@ config.vm.network "private_network", type: "dhcp"
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-config.vm.synced_folder ".", "/usr/share/samurai-dojo"
+# config.vm.synced_folder ".", "/usr/share/samurai-dojo"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -72,5 +72,8 @@ config.vm.synced_folder ".", "/usr/share/samurai-dojo"
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
-  config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+
 end

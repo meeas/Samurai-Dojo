@@ -1,0 +1,115 @@
+---
+
+- name: run the playbook tasks for Vagrant provisioning
+  hosts: all
+  connection: local
+  tasks:
+
+  - name: apt upgrade (this may take a while)
+    apt:
+      upgrade: safe
+    become: true
+
+  - name: ensure prerequisite packages are installed (this may take a while)
+    apt:
+      name:
+        - curl
+        - docker.io
+        - python-pip
+    become: true
+
+  - name: python prerequisite modules
+    pip:
+      name: "{{ modules }}"
+    become: yes
+    vars:
+      modules:
+      - docker
+
+  - name: Check if docker-compose is already installed
+    stat:
+      path: /usr/bin/docker-compose
+    register: stat_docker_compose
+
+  - name: install docker-compose
+    shell: 'curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose'
+    become: yes
+    when: stat_docker_compose.stat.exists == False
+
+  - name: set permissions for docker-compose
+    file:
+      path: /usr/bin/docker-compose
+      mode: "+x"
+    become: yes
+
+  - name: Check if docker daemon.json configuration file exists
+    stat:
+      path: /etc/docker/daemon.json
+    register: daemon_json
+
+  - name: Turn off docker so we can update DNS if needed
+    service:
+      name: docker
+      state: stopped
+    become: yes
+    when: daemon_json.stat.exists == False
+
+  - name: Update docker DNS configuration
+    copy:
+      dest: /etc/docker/daemon.json
+      content: |
+        {
+        "dns": ["8.8.8.8", "8.8.4.4"]
+        }
+    become: yes
+    when: daemon_json.stat.exists == False
+
+  - name: Make sure docker service is running
+    service:
+      name: docker
+      state: started
+      enabled: yes
+    become: yes
+
+  - name: Create Samurai Dojo target service descriptor
+    copy:
+      dest: /etc/systemd/system/wtf-dojo.service
+      content: |
+        [Unit]
+        Description=dojo-basic and dojo-scavenger target service
+        After=docker.service
+        Requires=docker.service
+
+        [Service]
+        Type=simple
+        WorkingDirectory=/vagrant
+        ExecStart=/usr/bin/docker-compose up
+
+        [Install]
+        WantedBy=multi-user.target
+      mode: 0744
+    become: yes
+
+  - name: Start Samurai-Dojo targets
+    service:
+      name: wtf-dojo.service
+      state: started
+      enabled: yes
+    become: yes
+
+  - name: Wait for dojo-basic to be available
+    wait_for:
+      port: 30080
+      sleep: 10
+      delay: 1
+      timeout: 60
+
+  - pause: seconds=5
+
+  - name: Reset dojo-basic DB
+    uri:
+      url: http://localhost:30080/reset-db.php
+
+  - name: Output location of hosts for dev.
+    debug:
+      msg: "Basic:  http://localhost:30080    Scavenger:  http://localhost:31080"

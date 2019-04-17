@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  basicphp:
+    build: src
+    ports:
+      - "30080:80"
+      - "30443:443"
+    volumes:
+      - ./src/basic:/var/www/html
+    links:
+      - basicdb
+    extra_hosts:
+      - "dojo-basic:127.0.0.2"
+      - "dojo-basic.wtf:127.0.0.2"
+
+
+  scavengerphp:
+    build: src
+    ports:
+      - "31080:80"
+      - "31443:443"
+    volumes:
+      - ./src/scavenger:/var/www/html
+    links:
+      - scavengerdb
+
+
+  basicdb:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=samurai
+      - MYSQL_DATABASE=samurai_dojo_basic
+
+
+  scavengerdb:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+      - ./src/scavenger/scavenger.sql:/docker-entrypoint-initdb.d/scavenger.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=samurai
+      - MYSQL_DATABASE=samurai_dojo_scavenger

@@ -1,6 +1,6 @@
 <?php
     if (!empty($_POST["username"])) {
-        $dbconn = mysqli_connect("localhost", "root", "samurai") or die(mysqli_error());
+        $dbconn = mysqli_connect("scavengerdb", "root", "samurai") or die(mysqli_error());
         mysqli_select_db($dbconn, "samurai_dojo_scavenger");
         $resultset = mysqli_query($dbconn, "select * from partners_data where username = '".$_POST["username"]."';") or die(mysqli_error($dbconn));
         $result = mysqli_fetch_assoc($resultset);
