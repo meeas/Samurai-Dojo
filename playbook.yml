@@ -102,9 +102,7 @@
       port: 30080
       sleep: 10
       delay: 1
-      timeout: 60
-
-  - pause: seconds=5
+      timeout: 120
 
   - name: Reset dojo-basic DB
     uri:
