@@ -1,0 +1,3 @@
+ErrorDocument 403 "Error - check the logs for more details."
+Order Deny,Allow
+Allow from all

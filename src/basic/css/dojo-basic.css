@@ -1,0 +1,35 @@
+#titlebar {
+    text-align: center;
+    color: darkblue;
+    background-color: lightblue;
+}
+
+#footerbar {
+    text-align: center;
+}
+
+#title-error {
+    color: lightcoral;
+}
+
+.sidenav {
+    color: dimgrey;
+    background-color: lightblue;
+}
+
+.menu-heading {
+    font-weight: bolder;
+}
+
+.nav-pills a {
+    color: darkslateblue;
+}
+
+.nav-pills a:hover {
+    color:cornflowerblue;
+    background-color: beige;
+}
+
+.page-title {
+    text-align: center;
+}
